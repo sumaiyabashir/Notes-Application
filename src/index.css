@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p {
+  margin: 1em 0;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+}
+
+.ProseMirror h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.ProseMirror a {
+  color: #2563eb;
+  text-decoration: underline;
+}
