@@ -22,7 +22,7 @@ const NoteList = ({
   )
 
   return (
-    <div className="w-64 border-r h-screen p-4">
+    <div className="w-64 border-r h-screen p-4 bg-gray-900 text-white">
       <SearchBar 
         searchQuery={searchQuery}
         onSearchChange={onSearchChange}
@@ -40,9 +40,9 @@ const NoteList = ({
           <h2 className="font-semibold">Notes</h2>
           <button
             onClick={onNewNote}
-            className="p-1 hover:bg-gray-100 rounded"
+            className="p-1 hover:bg-gray-800 rounded"
           >
-            <FaPlus />
+            <FaPlus className="text-white" />
           </button>
         </div>
         <ul>

@@ -17,7 +17,7 @@ function App() {
     setSelectedNote(newNote)
   }
 
-  const updateNote = (updatedNote) => {
+  const saveNote = (updatedNote) => {
     const newNotes = notes.map(note => 
       note.id === updatedNote.id ? updatedNote : note
     )
@@ -38,6 +38,10 @@ function App() {
     }
   }
 
+  const handleFolderSelect = (folderName) => {
+    setSelectedFolder(prevFolder => prevFolder === folderName ? null : folderName)
+  }
+
   return (
     <div className="flex h-screen">
       <NoteList
@@ -47,7 +51,7 @@ function App() {
         selectedNote={selectedNote}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
-        onFolderSelect={setSelectedFolder}
+        onFolderSelect={handleFolderSelect}
         onNoteSelect={setSelectedNote}
         onNewNote={createNewNote}
         onDeleteNote={deleteNote}
@@ -56,16 +60,10 @@ function App() {
       
       {selectedNote ? (
         <div className="flex-1 p-4">
-          <input
-            type="text"
-            value={selectedNote.title}
-            onChange={(e) => updateNote({ ...selectedNote, title: e.target.value })}
-            className="text-2xl font-bold mb-4 w-full outline-none"
-            placeholder="Note title"
-          />
           <Editor
             content={selectedNote.content}
-            onChange={(content) => updateNote({ ...selectedNote, content })}
+            selectedNote={selectedNote}
+            onSave={saveNote}
           />
         </div>
       ) : (
